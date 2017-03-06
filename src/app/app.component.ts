@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PacService } from 'ng2-australia-post-api';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +6,8 @@ import { PacService } from 'ng2-australia-post-api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title: string = 'Australia Post Postage Assessment Calculator';
 
-  countries: any[];
-
-  constructor(private pacService: PacService) {
-    this.pacService.getCountries()
-      .then(countries => this.countries = countries);
+  constructor() {
   }
 }

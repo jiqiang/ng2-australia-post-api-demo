@@ -1,33 +1,25 @@
-<p class="control">
-  <label class="radio">
-    <input type="radio" name="type">
-    Domestic Letter
-  </label>
-  <label class="radio">
-    <input type="radio" name="type">
-    Domestic Parcel
-  </label>
-  <label class="radio">
-    <input type="radio" name="type">
-    International Letter
-  </label>
-  <label class="radio">
-    <input type="radio" name="type">
-    International Parcel
-  </label>
-</p>
-<div class="control is-grouped">
-  <p class="control">
-    <button class="button is-link">Domestic</button>
-  </p>
-  <p class="control">
-    <button class="button is-link">International</button>
-  </p>
-</div>
-<p class="control">
-  <span class="select">
-    <select>
-      <option *ngFor="let country of countries">{{country.description}}</option>
-    </select>
-  </span>
-</p>
+<nav class="nav has-shadow">
+  <div class="nav-left">
+    <a class="nav-item" routerLink="/domestic-letter">
+      <span class="icon">
+        <i class="fa fa-calculator"></i>
+      </span>
+      &nbsp;
+      <div class="nav-item">{{title}}</div>
+    </a>
+  </div>
+  <div class="nav-center">
+    
+  </div>
+  <div class="nav-right">
+    <a class="nav-item is-tab" routerLink="/domestic-letter" routerLinkActive="is-active">Domestic Letter</a>
+    <a class="nav-item is-tab" routerLink="/domestic-parcel" routerLinkActive="is-active">Domestic Parcel</a>
+    <a class="nav-item is-tab" routerLink="/international-letter" routerLinkActive="is-active">International Letter</a>
+    <a class="nav-item is-tab" routerLink="/international-parcel" routerLinkActive="is-active">International Parcel</a>
+  </div>
+</nav>
+<section class="section">
+  <div class="container is-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</section>
