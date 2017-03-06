@@ -1,42 +1,39 @@
-<form [formGroup]="domesticLetterForm">
-  <div class="columns">
-    <div class="column" formGroupName="letterProperties">
-      <label class="label">Thickness</label>
-      <p class="control">
-        <span class="select">
-          <select formControlName="thickness">
-            <option *ngFor="let thickness of thicknesses" [value]="thickness.value">{{thickness.name}}</option>
-          </select>
-        </span>
-      </p>
-      <label class="label">Weight</label>
-      <p class="control">
-        <span class="select">
-          <select formControlName="weight">
-            <option *ngFor="let weight of weights" [value]="weight.value">{{weight.name}}</option>
-          </select>
-        </span>
-      </p>
-      <label class="label">Size</label>
-      <p class="control">
-        <span class="select">
-          <select formControlName="size">
-            <option *ngFor="let size of sizes" [value]="size.value">{{size.name}}</option>
-          </select>
-        </span>
-      </p>
-    </div>
-    <div class="column">
-      <div *ngIf="services">
-        Second column
-      </div>
-    </div>
-    <div class="column">
-      <div *ngIf="postage">
-        Third column
-      </div>
-    </div>
+<div class="columns">
+  <div class="column">
+    <form [formGroup]="domesticLetterForm">
+    <label class="label">Thickness</label>
+    <p class="control">
+      <span class="select">
+        <select formControlName="thickness">
+          <option *ngFor="let thickness of thicknesses" [value]="thickness.value">{{thickness.name}}</option>
+        </select>
+      </span>
+    </p>
+    <label class="label">Weight</label>
+    <p class="control">
+      <span class="select">
+        <select formControlName="weight">
+          <option *ngFor="let weight of weights" [value]="weight.value">{{weight.name}}</option>
+        </select>
+      </span>
+    </p>
+    <label class="label">Size</label>
+    <p class="control">
+      <span class="select">
+        <select formControlName="size">
+          <option *ngFor="let size of sizes" [value]="size.value">{{size.name}}</option>
+        </select>
+      </span>
+    </p>
+    </form>
   </div>
-</form>
+  <div class="column">
+    <domestic-letter-service *ngIf="services" [services]="services"></domestic-letter-service>
+  </div>
+  <div class="column">
+    domestic letter postage
+  </div>
+</div>
+
 <p>Form value: {{ domesticLetterForm.value | json }}</p>
 <p>Form status: {{ domesticLetterForm.status | json }}</p>

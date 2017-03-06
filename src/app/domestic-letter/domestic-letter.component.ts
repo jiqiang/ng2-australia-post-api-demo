@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PostageAssessmentCalculatorService } from 'ng2-australia-post-api';
+import { DomesticLetterServiceComponent } from '../domestic-letter-service/domestic-letter-service.component';
 
 @Component({
-  selector: 'app-domestic-letter',
+  selector: 'domestic-letter',
   templateUrl: './domestic-letter.component.html',
   styleUrls: ['./domestic-letter.component.css']
 })
@@ -25,12 +26,9 @@ export class DomesticLetterComponent implements OnInit {
 
   createForm(): void {
     this.domesticLetterForm = this.fb.group({
-      letterProperties: this.fb.group({
-        thickness: [ null, Validators.required ],
-        weight: [ null, Validators.required ],
-        size: [ null, Validators.required ]
-      }),
-      services: this.fb.array([])
+      thickness: [ null, Validators.required ],
+      weight: [ null, Validators.required ],
+      size: [ null, Validators.required ]
     });
   }
 
@@ -68,16 +66,9 @@ export class DomesticLetterComponent implements OnInit {
     // create domestic letter form
     this.createForm();
 
-    this.domesticLetterForm.get("letterProperties").valueChanges.subscribe(data => {
-      console.log(data);
-    });
-    /*
     this.domesticLetterForm.valueChanges.subscribe(data => {
-      
-      this.services = null;
-      this.postage = null;
 
-      if (!this.domesticLetterForm.get('thickness').valid || !this.domesticLetterForm.get('weight').valid || !this.domesticLetterForm.get('size').valid) {
+      if (!this.domesticLetterForm.valid) {
         return;
       }
 
@@ -90,19 +81,20 @@ export class DomesticLetterComponent implements OnInit {
       this.getDomesticLetterServices({
         length: sizeArray[0],
         width: sizeArray[1],
-        thickness: parseInt(data.thickness),
-        weight: parseInt(data.weight)
+        thickness: data.thickness,
+        weight: data.weight
       });
 
+      /*
       this.calculateDomesticLetterPostage({
         service_code: 'AUS_LETTER_REGULAR_LARGE', 
-        weight: 100, 
+        weight: '100', 
         option_code: null, 
         suboption_code: null, 
         extra_cover: null
       });
+      */
     });
-    */
   }
 
 }
