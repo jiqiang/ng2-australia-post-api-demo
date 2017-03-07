@@ -38,22 +38,22 @@ export class DomesticLetterComponent implements OnInit {
   }
 
   getDomesticLetterWeights(): void {
-    this.pacService.getWeights(true, true)
+    this.pacService.getDomesticLetterWeights()
       .then(weights => this.weights = weights);
   }
 
   getDomesticLetterSizes(): void {
-    this.pacService.getSizes(true, true)
+    this.pacService.getDomesticLetterSizes()
       .then(sizes => this.sizes = sizes);
   }
 
-  getDomesticLetterServices(params: any): void {
-    this.pacService.getDomesticLetterServices(params)
+  getDomesticLetterServices(length: number, width: number, thickness: number, weight: number): void {
+    this.pacService.getDomesticLetterServices(length, width, thickness, weight)
       .then(services => this.services = services);
   }
 
-  calculateDomesticLetterPostage(params: any): void {
-    this.pacService.calculateDomesticLetterPostage(params)
+  calculateDomesticLetterPostage(serviceCode: any, weight: any, optionCode?: any, suboptionCode?: any, extraCover?: any): void {
+    this.pacService.calculateDomesticLetterPostage(serviceCode, weight)
       .then(postage => this.postage = postage);
   }
 
@@ -78,22 +78,9 @@ export class DomesticLetterComponent implements OnInit {
 
       let sizeArray = data.size.split("x");
 
-      this.getDomesticLetterServices({
-        length: sizeArray[0],
-        width: sizeArray[1],
-        thickness: data.thickness,
-        weight: data.weight
-      });
+      this.getDomesticLetterServices(sizeArray[0], sizeArray[1], data.thickness, data.weight);
 
-      /*
-      this.calculateDomesticLetterPostage({
-        service_code: 'AUS_LETTER_REGULAR_LARGE', 
-        weight: '100', 
-        option_code: null, 
-        suboption_code: null, 
-        extra_cover: null
-      });
-      */
+      this.calculateDomesticLetterPostage('AUS_LETTER_REGULAR_LARGE', 100);
     });
   }
 

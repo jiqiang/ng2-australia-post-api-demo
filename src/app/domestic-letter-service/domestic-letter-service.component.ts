@@ -20,5 +20,4 @@ export class DomesticLetterServiceComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
