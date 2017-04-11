@@ -6,19 +6,19 @@ import { AustraliaPostAPIModule } from 'ng2-australia-post-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DomesticLetterComponent } from './domestic-letter/domestic-letter.component';
-import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.component';
-import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
-import { InternationalLetterComponent } from './international-letter/international-letter.component';
-import { DomesticLetterServiceComponent } from './domestic-letter-service/domestic-letter-service.component';
+// import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.component';
+// import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
+// import { InternationalLetterComponent } from './international-letter/international-letter.component';
+// import { DomesticLetterServiceComponent } from './domestic-letter-service/domestic-letter-service.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DomesticLetterComponent,
-    DomesticParcelComponent,
-    InternationalParcelComponent,
-    InternationalLetterComponent,
-    DomesticLetterServiceComponent
+    DomesticLetterComponent
+    // DomesticParcelComponent,
+    // InternationalParcelComponent,
+    // InternationalLetterComponent,
+    // DomesticLetterServiceComponent
   ],
   imports: [
     BrowserModule,

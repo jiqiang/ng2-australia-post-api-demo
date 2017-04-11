@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PostageAssessmentCalculatorService } from 'ng2-australia-post-api';
-import { DomesticLetterServiceComponent } from '../domestic-letter-service/domestic-letter-service.component';
 
 @Component({
   selector: 'domestic-letter',
