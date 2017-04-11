@@ -6,7 +6,7 @@ import { PostageAssessmentCalculatorService } from 'ng2-australia-post-api';
 @Component({
   selector: 'domestic-letter',
   templateUrl: './domestic-letter.component.html',
-  styleUrls: ['./domestic-letter.component.css']
+  styleUrls: ['./domestic-letter.component.scss']
 })
 export class DomesticLetterComponent implements OnInit {
 
