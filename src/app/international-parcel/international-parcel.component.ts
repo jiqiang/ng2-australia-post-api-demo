@@ -8,7 +8,11 @@ import { PACService } from '../../pac/pac.service';
 })
 export class InternationalParcelComponent implements OnInit {
   private countries: any[];
-  constructor(private pacService: PACService) { }
+  private mode: string;
+
+  constructor(private pacService: PACService) {
+    this.mode = "indeterminate";
+  }
 
   ngOnInit() {
     this.pacService.getCountries()
