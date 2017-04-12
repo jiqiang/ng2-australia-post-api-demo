@@ -7,14 +7,12 @@ import { PACService } from '../../pac/pac.service';
   styleUrls: ['./international-parcel.component.scss']
 })
 export class InternationalParcelComponent implements OnInit {
-
+  private countries: any[];
   constructor(private pacService: PACService) { }
 
   ngOnInit() {
     this.pacService.getCountries()
-      .then(countries => {
-        console.log(countries);
-      });
+      .then(countries => this.countries = countries);
   }
 
 }
