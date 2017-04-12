@@ -1,39 +1,26 @@
-<div class="columns">
-  <div class="column">
-    <form [formGroup]="domesticLetterForm">
-    <label class="label">Thickness</label>
-    <p class="control">
-      <span class="select">
-        <select formControlName="thickness">
-          <option *ngFor="let thickness of thicknesses" [value]="thickness.value">{{thickness.name}}</option>
-        </select>
-      </span>
-    </p>
-    <label class="label">Weight</label>
-    <p class="control">
-      <span class="select">
-        <select formControlName="weight">
-          <option *ngFor="let weight of weights" [value]="weight.value">{{weight.name}}</option>
-        </select>
-      </span>
-    </p>
-    <label class="label">Size</label>
-    <p class="control">
-      <span class="select">
-        <select formControlName="size">
-          <option *ngFor="let size of sizes" [value]="size.value">{{size.name}}</option>
-        </select>
-      </span>
-    </p>
-    </form>
-  </div>
-  <!--<div class="column">
-    <domestic-letter-service *ngIf="services" [services]="services"></domestic-letter-service>
-  </div>-->
-  <div class="column">
-    domestic letter postage
-  </div>
+<div class="radio-group-container">
+  <h3>THICKNESS</h3>
+  <md-radio-group class="radio-group" [(ngModel)]="thickness">
+    <md-radio-button class="radio-button" *ngFor="let item of thicknesses" [value]="item.value">{{item.name}}</md-radio-button>
+  </md-radio-group>
 </div>
 
-<pre>Form value: {{ domesticLetterForm.value | json }}</pre>
-<pre>Form status: {{ domesticLetterForm.status | json }}</pre>
+<div class="radio-group-container">
+  <h3>WEIGHT</h3>
+  <md-radio-group class="radio-group" [(ngModel)]="weight">
+    <md-radio-button class="radio-button" *ngFor="let item of weights" [value]="item.value">{{item.name}}</md-radio-button>
+  </md-radio-group>
+</div>
+
+<div class="radio-group-container">
+  <h3>SIZE</h3>
+  <md-radio-group class="radio-group" [(ngModel)]="size">
+    <md-radio-button class="radio-button" *ngFor="let item of sizes" [value]="item.value">{{item.name}}</md-radio-button>
+  </md-radio-group>
+</div>
+
+<pre>
+  thickness: {{ thickness }}
+  weigth: {{ weight }}
+  size: {{ size }}
+</pre>

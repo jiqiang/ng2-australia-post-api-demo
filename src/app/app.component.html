@@ -1,22 +1,13 @@
 <md-toolbar color="primary">
-  <button md-icon-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
-  </button>
-  <md-menu #menu="mdMenu">
-    <a md-menu-item routerLink="/domestic-letter" routerLinkActive="is-active">
-      <span>Domestic Letter</span>
-    </a>
-    <a md-menu-item routerLink="/domestic-parcel" routerLinkActive="is-active">
-      <span>Domestic Parcel</span>
-    </a>
-    <a md-menu-item routerLink="/international-letter" routerLinkActive="is-active">
-      <span>International Letter</span>
-    </a>
-    <a md-menu-item routerLink="/international-parcel" routerLinkActive="is-active">
-      <span>International Parcel</span>
-    </a>
-  </md-menu>
+  <md-icon>fingerprint</md-icon><h6>AUSTRALIA POST POSTAGE ASSESSMENT CALCULATOR</h6>
 </md-toolbar>
+
+<nav md-tab-nav-bar>
+  <a md-tab-link routerLink="/domestic-letter" routerLinkActive #rla1="routerLinkActive" [active]="rla1.isActive">DOMESTIC LETTER</a>
+  <a md-tab-link routerLink="/domestic-parcel" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive">DOMESTIC PARCEL</a>
+  <a md-tab-link routerLink="/international-letter" routerLinkActive #rla3="routerLinkActive" [active]="rla3.isActive">INTERNATIONAL LETTER</a>
+  <a md-tab-link routerLink="/international-parcel" routerLinkActive #rla4="routerLinkActive" [active]="rla4.isActive">INTERNATIONAL PARCEL</a>
+</nav>
 
 <section class="section">
   <div class="container is-fluid">
