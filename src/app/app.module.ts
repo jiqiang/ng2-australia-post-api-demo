@@ -1,27 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AustraliaPostAPIModule } from 'ng2-australia-post-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DomesticLetterComponent } from './domestic-letter/domestic-letter.component';
-// import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.component';
-// import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
-// import { InternationalLetterComponent } from './international-letter/international-letter.component';
-// import { DomesticLetterServiceComponent } from './domestic-letter-service/domestic-letter-service.component';
+import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.component';
+import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
+import { InternationalLetterComponent } from './international-letter/international-letter.component';
+
+import "hammerjs";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DomesticLetterComponent
-    // DomesticParcelComponent,
-    // InternationalParcelComponent,
-    // InternationalLetterComponent,
-    // DomesticLetterServiceComponent
+    DomesticLetterComponent,
+    DomesticParcelComponent,
+    InternationalParcelComponent,
+    InternationalLetterComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,

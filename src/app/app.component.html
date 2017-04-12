@@ -1,23 +1,23 @@
-<nav class="nav has-shadow">
-  <div class="nav-left">
-    <a class="nav-item" routerLink="/domestic-letter">
-      <span class="icon">
-        <i class="fa fa-calculator"></i>
-      </span>
-      &nbsp;
-      <div class="nav-item">{{title}}</div>
+<md-toolbar color="primary">
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <a md-menu-item routerLink="/domestic-letter" routerLinkActive="is-active">
+      <span>Domestic Letter</span>
     </a>
-  </div>
-  <div class="nav-center">
+    <a md-menu-item routerLink="/domestic-parcel" routerLinkActive="is-active">
+      <span>Domestic Parcel</span>
+    </a>
+    <a md-menu-item routerLink="/international-letter" routerLinkActive="is-active">
+      <span>International Letter</span>
+    </a>
+    <a md-menu-item routerLink="/international-parcel" routerLinkActive="is-active">
+      <span>International Parcel</span>
+    </a>
+  </md-menu>
+</md-toolbar>
 
-  </div>
-  <div class="nav-right">
-    <a class="nav-item is-tab" routerLink="/domestic-letter" routerLinkActive="is-active">Domestic Letter</a>
-    <!--<a class="nav-item is-tab" routerLink="/domestic-parcel" routerLinkActive="is-active">Domestic Parcel</a>
-    <a class="nav-item is-tab" routerLink="/international-letter" routerLinkActive="is-active">International Letter</a>
-    <a class="nav-item is-tab" routerLink="/international-parcel" routerLinkActive="is-active">International Parcel</a>-->
-  </div>
-</nav>
 <section class="section">
   <div class="container is-fluid">
     <router-outlet></router-outlet>
