@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { PostageAssessmentCalculatorService } from 'ng2-australia-post-api';
+import { PACService } from '../../pac/pac.service';
 
 @Component({
   selector: 'domestic-letter',
@@ -19,7 +19,7 @@ export class DomesticLetterComponent implements OnInit {
   domesticLetterForm: FormGroup;
 
   constructor(
-    private pacService: PostageAssessmentCalculatorService,
+    private pacService: PACService,
     private fb: FormBuilder
   ) {}
 

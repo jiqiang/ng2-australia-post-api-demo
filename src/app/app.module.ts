@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AustraliaPostAPIModule } from 'ng2-australia-post-api';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DomesticLetterComponent } from './domestic-letter/domestic-letter.component';
 import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.component';
 import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
 import { InternationalLetterComponent } from './international-letter/international-letter.component';
+
+import { PostageAssessmentCalculatorModule } from '../pac';
 
 import "hammerjs";
 
@@ -29,9 +29,9 @@ import "hammerjs";
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    AustraliaPostAPIModule.forRoot({auth_key: 'e6f7e18e-c319-46d2-84b3-4f8177f0d8f2'})
+    PostageAssessmentCalculatorModule.forRoot({auth_key: 'e6f7e18e-c319-46d2-84b3-4f8177f0d8f2'})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {}

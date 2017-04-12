@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PACService } from '../../pac/pac.service';
 
 @Component({
   selector: 'app-international-parcel',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternationalParcelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pacService: PACService) { }
 
   ngOnInit() {
+    this.pacService.getCountries()
+      .then(countries => {
+        console.log(countries);
+      });
   }
 
 }
