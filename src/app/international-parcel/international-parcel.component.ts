@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PACService } from '../../pac/pac.service';
+import { PACService } from '../pac/pac.service';
 
 @Component({
   selector: 'app-international-parcel',

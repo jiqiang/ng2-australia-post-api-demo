@@ -10,7 +10,7 @@ import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.compo
 import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
 import { InternationalLetterComponent } from './international-letter/international-letter.component';
 
-import { PostageAssessmentCalculatorModule } from '../pac';
+import { PostageAssessmentCalculatorModule } from './pac';
 
 import "hammerjs";
 
