@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DomesticLetterComponent } from './domestic-letter/domestic-letter.component';
-import { DomesticParcelComponent } from './domestic-parcel/domestic-parcel.component';
-import { InternationalLetterComponent } from './international-letter/international-letter.component';
-import { InternationalParcelComponent } from './international-parcel/international-parcel.component';
-
 const routes: Routes = [
-  { path: '', redirectTo: '/domestic-letter', pathMatch: 'full' },
-  { path: 'domestic-letter', component: DomesticLetterComponent },
-  { path: 'domestic-parcel', component: DomesticParcelComponent },
-  { path: 'international-letter', component: InternationalLetterComponent },
-  { path: 'international-parcel', component: InternationalParcelComponent }
+  { path: '', redirectTo: 'domestic-letter', pathMatch: 'full' },
+  { path: 'domestic-parcel', loadChildren: 'app/domestic-parcel/domestic-parcel.module#DomesticParcelModule' },
+  { path: 'international-letter', loadChildren: 'app/international-letter/international-letter.module#InternationalLetterModule' },
+  { path: 'international-parcel', loadChildren: 'app/international-parcel/international-parcel.module#InternationalParcelModule' }
 ];
 
 @NgModule({

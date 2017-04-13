@@ -16,6 +16,10 @@ export class DomesticLetterComponent implements OnInit {
   services: any[];
   postage: any;
 
+  thickness: string;
+  weight: string;
+  size: string;
+
   domesticLetterForm: FormGroup;
 
   constructor(

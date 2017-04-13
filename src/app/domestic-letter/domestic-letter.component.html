@@ -1,26 +1,21 @@
 <div class="radio-group-container">
   <h3>THICKNESS</h3>
-  <md-radio-group class="radio-group" [(ngModel)]="thickness">
+  <md-radio-group class="radio-group">
     <md-radio-button class="radio-button" *ngFor="let item of thicknesses" [value]="item.value">{{item.name}}</md-radio-button>
   </md-radio-group>
 </div>
 
 <div class="radio-group-container">
   <h3>WEIGHT</h3>
-  <md-radio-group class="radio-group" [(ngModel)]="weight">
+  <md-radio-group class="radio-group">
     <md-radio-button class="radio-button" *ngFor="let item of weights" [value]="item.value">{{item.name}}</md-radio-button>
   </md-radio-group>
 </div>
 
 <div class="radio-group-container">
   <h3>SIZE</h3>
-  <md-radio-group class="radio-group" [(ngModel)]="size">
+  <md-radio-group class="radio-group">
     <md-radio-button class="radio-button" *ngFor="let item of sizes" [value]="item.value">{{item.name}}</md-radio-button>
   </md-radio-group>
 </div>
 
-<pre>
-  thickness: {{ thickness }}
-  weigth: {{ weight }}
-  size: {{ size }}
-</pre>
