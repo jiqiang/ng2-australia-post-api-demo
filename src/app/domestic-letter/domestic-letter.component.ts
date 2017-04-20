@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { PACService } from '../pac/pac.service';
 
@@ -20,20 +19,9 @@ export class DomesticLetterComponent implements OnInit {
   weight: string;
   size: string;
 
-  domesticLetterForm: FormGroup;
 
-  constructor(
-    private pacService: PACService,
-    private fb: FormBuilder
-  ) {}
 
-  createForm(): void {
-    this.domesticLetterForm = this.fb.group({
-      thickness: [ null, Validators.required ],
-      weight: [ null, Validators.required ],
-      size: [ null, Validators.required ]
-    });
-  }
+  constructor(private pacService: PACService) {}
 
   getDomesticLetterThicknesses(): void {
     this.pacService.getDomesticLetterThicknesses()
@@ -65,26 +53,6 @@ export class DomesticLetterComponent implements OnInit {
     this.getDomesticLetterThicknesses();
     this.getDomesticLetterWeights();
     this.getDomesticLetterSizes();
-
-    // create domestic letter form
-    this.createForm();
-
-    this.domesticLetterForm.valueChanges.subscribe(data => {
-
-      if (!this.domesticLetterForm.valid) {
-        return;
-      }
-
-      if (data.size === "undefined") {
-        return;
-      }
-
-      let sizeArray = data.size.split("x");
-
-      this.getDomesticLetterServices(sizeArray[0], sizeArray[1], data.thickness, data.weight);
-
-      this.calculateDomesticLetterPostage('AUS_LETTER_REGULAR_LARGE', 100);
-    });
   }
 
 }
