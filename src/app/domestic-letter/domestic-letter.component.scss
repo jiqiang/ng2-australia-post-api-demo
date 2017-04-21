@@ -12,8 +12,10 @@ md-card {
 
     label {
 
-      &:first-child {
-        margin-bottom: 8px;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
       }
 
       cursor: pointer;
