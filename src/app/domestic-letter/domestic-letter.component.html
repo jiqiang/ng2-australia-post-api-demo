@@ -1,19 +1,38 @@
-<div class="radio-group-container">
-  <h3>THICKNESS</h3>
-  <md-radio-group class="radio-group" [(ngModel)]="thickness">
-    <md-radio-button class="radio-button" *ngFor="let item of thicknesses" [value]="item.code">{{item.name}}</md-radio-button>
-  </md-radio-group>
-</div>
+<md-card>
+  <md-card-title>STEP 1</md-card-title>
+  <md-card-subtitle>THICKNESS</md-card-subtitle>
+  <md-card-content>
+    <div class="radio-group">
+      <label *ngFor="let item of thicknesses">
+        <input type="radio" name="thickness" value="{{item.code}}" [(ngModel)]="thickness">
+        <span>{{item.name}}</span>
+      </label>
+    </div>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>NEXT</button>
+  </md-card-actions>
+</md-card>
+
+<!--<div class="radio-group-container">
+  <div class="title">THICKNESS</div>
+  <div class="radio-group">
+    <label *ngFor="let item of thicknesses">
+      <input type="radio" name="thickness" value="{{item.code}}" [(ngModel)]="thickness">
+      <span>{{item.name}}</span>
+    </label>
+  </div>
+</div>-->
 
 <div class="radio-group-container">
-  <h3>WEIGHT</h3>
+  <p>WEIGHT</p>
   <md-radio-group class="radio-group" [(ngModel)]="weight">
     <md-radio-button class="radio-button" *ngFor="let item of weights" [value]="item.code">{{item.name}}</md-radio-button>
   </md-radio-group>
 </div>
 
 <div class="radio-group-container">
-  <h3>SIZE</h3>
+  <div>SIZE</div>
   <md-radio-group class="radio-group" [(ngModel)]="size">
     <md-radio-button class="radio-button" *ngFor="let item of sizes" [value]="item.code">{{item.name}}</md-radio-button>
   </md-radio-group>
