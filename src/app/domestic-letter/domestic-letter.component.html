@@ -4,7 +4,7 @@
     <md-progress-bar *ngIf="!thicknesses" mode="indeterminate"></md-progress-bar>
     <div class="radio-group">
       <label *ngFor="let item of thicknesses">
-        <input type="radio" name="thickness" value="{{item.code}}" [(ngModel)]="thickness">
+        <input type="radio" name="thickness" value="{{item.value}}" [(ngModel)]="thickness">
         <span>{{item.name}}</span>
       </label>
     </div>
@@ -17,7 +17,7 @@
     <md-progress-bar *ngIf="!weights" mode="indeterminate"></md-progress-bar>
     <div class="radio-group">
       <label *ngFor="let item of weights">
-        <input type="radio" name="weight" value="{{item.code}}" [(ngModel)]="weight">
+        <input type="radio" name="weight" value="{{item.value}}" [(ngModel)]="weight">
         <span>{{item.name}}</span>
       </label>
     </div>
@@ -30,28 +30,16 @@
     <md-progress-bar *ngIf="!sizes" mode="indeterminate"></md-progress-bar>
     <div class="radio-group">
       <label *ngFor="let item of sizes">
-        <input type="radio" name="size" value="{{item.code}}" [(ngModel)]="size">
+        <input type="radio" name="size" value="{{item.value}}" (change)="sizeChange($event)">
         <span>{{item.name}}</span>
       </label>
     </div>
   </md-card-content>
 </md-card>
 
-<div>
-  <md-input-container>
-    <input mdInput placeholder="Length" maxlength="3" [(ngModel)]="length">
-    <span mdSuffix>cm</span>
-  </md-input-container>
-  <md-input-container>
-    <input mdInput placeholder="Width" maxlength="3" [(ngModel)]="width">
-    <span mdSuffix>cm</span>
-  </md-input-container>
-</div>
-
 <pre>
   thickness: {{ thickness | json }}
   weight: {{ weight | json }}
-  size: {{ size | json }}
   length: {{ length | json }}
   width: {{ width | json }}
 </pre>

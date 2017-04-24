@@ -17,9 +17,8 @@ export class DomesticLetterComponent implements OnInit {
 
   thickness: string;
   weight: string;
-  size: string;
-
-
+  length: string;
+  width: string;
 
   constructor(private pacService: PACService) {}
 
@@ -35,7 +34,7 @@ export class DomesticLetterComponent implements OnInit {
 
   getDomesticLetterSizes(): void {
     this.pacService.getDomesticLetterSizes()
-      .then(sizes => this.sizes = sizes);
+      .then(sizes => this.sizes = sizes.filter(s => s.value));
   }
 
   getDomesticLetterServices(length: number, width: number, thickness: number, weight: number): void {
@@ -53,6 +52,17 @@ export class DomesticLetterComponent implements OnInit {
     this.getDomesticLetterThicknesses();
     this.getDomesticLetterWeights();
     this.getDomesticLetterSizes();
+  }
+
+  sizeChange(e) {
+    this.setLengthAndWidthBySize(e.target.value);
+  }
+
+  private setLengthAndWidthBySize(size: string): void {
+    // get size value and set length and width
+    let sizeArray = size.split("x");
+    this.length = sizeArray[0];
+    this.width = sizeArray[1];
   }
 
 }
