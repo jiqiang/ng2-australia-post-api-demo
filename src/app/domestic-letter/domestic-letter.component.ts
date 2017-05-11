@@ -13,12 +13,20 @@ export class DomesticLetterComponent implements OnInit {
   weights: any[];
   sizes: any[];
   services: any[];
+  options: any[];
+  suboptions: any[];
   postage: any;
 
   thickness: string;
   weight: string;
   length: string;
   width: string;
+  service: any;
+  option: any;
+  suboption: any;
+  serviceCode: string;
+  optionCode: string;
+  suboptionCode: string;
 
   constructor(private pacService: PACService) {}
 
@@ -37,13 +45,13 @@ export class DomesticLetterComponent implements OnInit {
       .then(sizes => this.sizes = sizes.filter(s => s.value));
   }
 
-  getDomesticLetterServices(length: number, width: number, thickness: number, weight: number): void {
-    this.pacService.getDomesticLetterServices(length, width, thickness, weight)
+  getDomesticLetterServices(): void {
+    this.pacService.getDomesticLetterServices(this.length, this.width, this.thickness, this.weight)
       .then(services => this.services = services);
   }
 
-  calculateDomesticLetterPostage(serviceCode: any, weight: any, optionCode?: any, suboptionCode?: any, extraCover?: any): void {
-    this.pacService.calculateDomesticLetterPostage(serviceCode, weight)
+  calculateDomesticLetterPostage(): void {
+    this.pacService.calculateDomesticLetterPostage(this.serviceCode, this.weight)
       .then(postage => this.postage = postage);
   }
 
@@ -56,6 +64,23 @@ export class DomesticLetterComponent implements OnInit {
 
   sizeChange(e) {
     this.setLengthAndWidthBySize(e.target.value);
+  }
+
+  serviceChange(e) {
+    this.service = this.services[e.target.value];
+    this.serviceCode = this.service.code;
+    this.options = this.service.options && this.service.options.option ? this.service.options.option : undefined;
+  }
+
+  optionChange(e) {
+    this.option = this.options[e.target.value];
+    this.optionCode = this.option.code;
+    this.suboptions = this.option.suboptions && this.option.suboptions.option ? this.option.suboptions.option : undefined;
+  }
+
+  suboptionChange(e) {
+    this.suboption = this.suboptions[e.target.value];
+    this.suboptionCode = this.suboption.code;
   }
 
   private setLengthAndWidthBySize(size: string): void {

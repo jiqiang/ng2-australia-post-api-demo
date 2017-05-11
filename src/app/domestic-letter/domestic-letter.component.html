@@ -1,20 +1,18 @@
-<md-card>
+<md-card *ngIf="thicknesses">
   <md-card-title>THICKNESS</md-card-title>
   <md-card-content>
-    <md-progress-bar *ngIf="!thicknesses" mode="indeterminate"></md-progress-bar>
     <div class="radio-group">
-      <label *ngFor="let item of thicknesses">
-        <input type="radio" name="thickness" value="{{item.value}}" [(ngModel)]="thickness">
+      <label *ngFor="let item of thicknesses; let index=index">
+        <input type="radio" name="thickness" value="{{index}}" (change)="thicknessChange($event)">
         <span>{{item.name}}</span>
       </label>
     </div>
   </md-card-content>
 </md-card>
 
-<md-card *ngIf="thickness">
+<md-card *ngIf="weights">
   <md-card-title>WEIGHT</md-card-title>
   <md-card-content>
-    <md-progress-bar *ngIf="!weights" mode="indeterminate"></md-progress-bar>
     <div class="radio-group">
       <label *ngFor="let item of weights">
         <input type="radio" name="weight" value="{{item.value}}" [(ngModel)]="weight">
@@ -24,13 +22,54 @@
   </md-card-content>
 </md-card>
 
-<md-card *ngIf="weight">
+<md-card *ngIf="sizes">
   <md-card-title>SIZE</md-card-title>
   <md-card-content>
-    <md-progress-bar *ngIf="!sizes" mode="indeterminate"></md-progress-bar>
     <div class="radio-group">
       <label *ngFor="let item of sizes">
         <input type="radio" name="size" value="{{item.value}}" (change)="sizeChange($event)">
+        <span>{{item.name}}</span>
+      </label>
+    </div>
+  </md-card-content>
+</md-card>
+
+<br />
+
+<button *ngIf="thickness && length && width && weight" md-raised-button (click)="getDomesticLetterServices()">GET SERVICES</button>
+
+<br />
+
+<md-card *ngIf="services">
+  <md-card-title>SERVICES</md-card-title>
+  <md-card-content>
+    <div class="radio-group">
+      <label *ngFor="let item of services; let index=index">
+        <input type="radio" name="service" value="{{index}}" (change)="serviceChange($event)">
+        <span>{{item.name}}: ${{item.price}}</span>
+      </label>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card *ngIf="options">
+  <md-card-title>OPTIONS [optional]</md-card-title>
+  <md-card-content>
+    <div class="radio-group">
+      <label *ngFor="let item of options; let index=index">
+        <input type="radio" name="option" value="{{index}}" (change)="optionChange($event)">
+        <span>{{item.name}}</span>
+      </label>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card *ngIf="suboptions">
+  <md-card-title>SUBOPTIONS [optional]</md-card-title>
+  <md-card-content>
+    <div class="radio-group">
+      <label *ngFor="let item of suboptions; let index=index">
+        <input type="radio" name="suboption" value="{{index}}" (change)="suboptionChange($event)">
         <span>{{item.name}}</span>
       </label>
     </div>
@@ -42,4 +81,8 @@
   weight: {{ weight | json }}
   length: {{ length | json }}
   width: {{ width | json }}
+  service code {{ serviceCode | json }}
+  option code {{ optionCode | json }}
+  suboption code {{ suboptionCode | json }}
+  {{ service | json }}
 </pre>
