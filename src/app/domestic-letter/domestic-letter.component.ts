@@ -45,9 +45,11 @@ export class DomesticLetterComponent implements OnInit {
       .then(sizes => this.sizes = sizes.filter(s => s.value));
   }
 
-  getDomesticLetterServices(): void {
-    this.pacService.getDomesticLetterServices(this.length, this.width, this.thickness, this.weight)
-      .then(services => this.services = services);
+  getDomesticLetterServices(length: string, width: string, thickness: string, weight: string): void {
+    if (length && width && thickness && weight) {
+      this.pacService.getDomesticLetterServices(this.length, this.width, this.thickness, this.weight)
+        .then(services => this.services = services);
+    }
   }
 
   calculateDomesticLetterPostage(): void {
@@ -62,17 +64,48 @@ export class DomesticLetterComponent implements OnInit {
     this.getDomesticLetterSizes();
   }
 
+  thicknessChange(e) {
+    this.thickness = e.target.value;
+    this.resetServices();
+    this.getDomesticLetterServices(this.length, this.width, this.thickness, this.weight);
+  }
+
+  weightChange(e) {
+    this.weight = e.target.value;
+    this.resetServices();
+    this.getDomesticLetterServices(this.length, this.width, this.thickness, this.weight);
+  }
+
   sizeChange(e) {
     this.setLengthAndWidthBySize(e.target.value);
+    this.resetServices();
+    this.getDomesticLetterServices(this.length, this.width, this.thickness, this.weight);
+  }
+
+  resetServices() {
+    this.services = null;
+    this.options = null;
+    this.suboptions = null;
+  }
+
+  resetOptions() {
+    this.options = null;
+    this.suboptions = null;
+  }
+
+  resetSuboptions() {
+    this.suboptions = null;
   }
 
   serviceChange(e) {
+    this.resetOptions();
     this.service = this.services[e.target.value];
     this.serviceCode = this.service.code;
     this.options = this.service.options && this.service.options.option ? this.service.options.option : undefined;
   }
 
   optionChange(e) {
+    this.resetSuboptions();
     this.option = this.options[e.target.value];
     this.optionCode = this.option.code;
     this.suboptions = this.option.suboptions && this.option.suboptions.option ? this.option.suboptions.option : undefined;

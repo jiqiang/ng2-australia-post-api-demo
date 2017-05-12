@@ -2,8 +2,8 @@
   <md-card-title>THICKNESS</md-card-title>
   <md-card-content>
     <div class="radio-group">
-      <label *ngFor="let item of thicknesses; let index=index">
-        <input type="radio" name="thickness" value="{{index}}" (change)="thicknessChange($event)">
+      <label *ngFor="let item of thicknesses">
+        <input type="radio" name="thickness" value="{{item.value}}" (change)="thicknessChange($event)">
         <span>{{item.name}}</span>
       </label>
     </div>
@@ -15,7 +15,7 @@
   <md-card-content>
     <div class="radio-group">
       <label *ngFor="let item of weights">
-        <input type="radio" name="weight" value="{{item.value}}" [(ngModel)]="weight">
+        <input type="radio" name="weight" value="{{item.value}}" (change)="weightChange($event)">
         <span>{{item.name}}</span>
       </label>
     </div>
@@ -33,12 +33,6 @@
     </div>
   </md-card-content>
 </md-card>
-
-<br />
-
-<button *ngIf="thickness && length && width && weight" md-raised-button (click)="getDomesticLetterServices()">GET SERVICES</button>
-
-<br />
 
 <md-card *ngIf="services">
   <md-card-title>SERVICES</md-card-title>
